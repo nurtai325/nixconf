@@ -4,6 +4,8 @@
   imports = [
     ./nvim
     ./zsh
+    ./fzf
+    ./tmux
   ];
 
   home.username = "nurtai";
@@ -18,16 +20,23 @@
   };
 
   home.packages = [
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    pkgs.zsh-powerlevel10k
+    pkgs.tree-sitter
+    pkgs.nodejs
+    pkgs.ripgrep
+    pkgs.lazygit
+    pkgs.bottom
+    pkgs.gnumake
+    pkgs.luajitPackages.jsregexp
+    pkgs.gcc
+
+    (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
 
   home.file = {
-    # ".screenrc".source = dotfiles/screenrc;
+    ".p10k.zsh".source = ./zsh/p10k.zsh;
+    ".config/nvim/init.lua".source = ./nvim/config/init.lua;
+    ".config/nvim/lua".source = ./nvim/config/lua;
   };
 
   home.sessionVariables = {
