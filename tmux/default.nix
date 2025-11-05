@@ -27,6 +27,7 @@
       }
     ];
     extraConfig = ''
+      set -sg escape-time 0
       set-option -g status-position top
 
       unbind r
