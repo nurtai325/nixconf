@@ -13,7 +13,7 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
     };
-    initExtraBeforeCompInit = "bindkey -e";
+    initExtraBeforeCompInit = "bindkey -v";
     initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; source ~/.p10k.zsh;";
   };
 }
