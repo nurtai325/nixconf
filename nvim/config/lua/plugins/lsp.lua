@@ -217,5 +217,19 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		})
+
+		require("lspconfig").clangd.setup({
+			-- 	cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
+			-- 	init_options = {
+			-- 		fallbackFlags = { "-std=c++17" },
+			-- 	},
+		})
+		require("lspconfig").opts = {
+			servers = {
+				clangd = {
+					mason = false,
+				},
+			},
+		}
 	end,
 }
