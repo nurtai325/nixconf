@@ -30,6 +30,8 @@
     pkgs.luajitPackages.jsregexp
     pkgs.gcc
     pkgs.go
+    pkgs.zip
+    pkgs.unzip
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
