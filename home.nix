@@ -29,6 +29,7 @@
     pkgs.gnumake
     pkgs.luajitPackages.jsregexp
     pkgs.gcc
+    pkgs.go
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
