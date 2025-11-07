@@ -32,6 +32,7 @@
     pkgs.go
     pkgs.zip
     pkgs.unzip
+    pkgs.clang-tools
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
