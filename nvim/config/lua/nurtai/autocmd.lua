@@ -28,3 +28,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		vim.opt.expandtab = false
 	end
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.opt.number = true
+		vim.opt.relativenumber = true
+	end
+})
