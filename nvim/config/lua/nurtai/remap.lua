@@ -62,13 +62,20 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-local term;
 -- terminal
-vim.keymap.set("n", "<leader>tt", function ()
+local term;
+local prevBuf;
+
+vim.keymap.set("n", "<leader>to", function ()
+	prevBuf = vim.api.nvim_get_current_buf()
 	if term then
 		vim.api.nvim_set_current_buf(term)
 	else
 		vim.cmd.terminal()
 		term = vim.api.nvim_get_current_buf()
 	end
+end)
+
+vim.keymap.set("n", "<leader>tc", function ()
+	vim.api.nvim_set_current_buf(prevBuf)
 end)
