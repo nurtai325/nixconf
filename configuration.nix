@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -84,9 +84,12 @@
   users.users.nurtai = {
     isNormalUser = true;
     description = "nurtai";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -103,11 +106,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     git
     zsh
-    mangohud protonup-qt lutris bottles heroic
+    mangohud
+    protonup-qt
+    lutris
+    bottles
+    heroic
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,11 +144,14 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # AMD CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
- 
+
   # GPU drivers for Ryzen 4600G integrated graphics
   hardware.opengl = {
     enable = true;
@@ -150,11 +160,11 @@
       rocmPackages.clr.icd
     ];
   };
- 
+
   # General firmware
   hardware.enableRedistributableFirmware = true;
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   programs.steam = {
     enable = true;
