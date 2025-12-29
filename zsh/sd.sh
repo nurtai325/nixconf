@@ -2,7 +2,7 @@
 
 # script for changing current tmux session to another directory in $selected
 
-selected=$(find $HOME/nixconf $HOME/work $HOME/personal $HOME/contest $HOME/learn -maxdepth 1 -type d,l | fzf);
+selected=$(find $HOME -maxdepth 2 -type d,l | fzf);
 
 if [ -z "$selected" ]; then
     exit 0
