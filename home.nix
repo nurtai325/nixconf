@@ -35,6 +35,7 @@
     pkgs.kubectl
     pkgs.rustc
     pkgs.python312
+    pkgs.bat
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
