@@ -25,11 +25,12 @@
     pkgs.ripgrep
     pkgs.lazygit
     pkgs.gnumake
-    pkgs.gcc
     pkgs.go
     pkgs.zip
     pkgs.unzip
     pkgs.clang-tools
+    pkgs.cmake
+    pkgs.gcc
     pkgs.istioctl
     pkgs.kind
     pkgs.kubectl
