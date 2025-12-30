@@ -37,6 +37,9 @@
       highlight.enable = true;
       indent.enable = true;
       nixvimInjections = true;
+      folding.enable = false;
+      ensureInstalled = [ "go" ];
+      incrementalSelection.enable = true;
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         c
         cpp
@@ -56,6 +59,8 @@
         nix
         rust
         go
+        gomod
+        gowork
         yaml
         toml
       ];
@@ -67,8 +72,16 @@
         ts_ls.enable = true;
         jsonls.enable = true;
         nil_ls.enable = true;
-        gopls.enable = true;
-        gopls.autostart = true;
+        gopls = {
+          enable = true;
+          extraOptions = {
+            settings = {
+              gopls = {
+                semanticTokens = false;
+              };
+            };
+          };
+        };
         pylsp.enable = true;
         rust_analyzer.enable = true;
         rust_analyzer.installCargo = false;

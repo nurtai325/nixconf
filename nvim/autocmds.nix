@@ -7,6 +7,9 @@
 
 {
   programs.nixvim.extraConfigLua = ''
+    vim.g.go_highlight_functions = 0
+    vim.g.go_highlight_methods = 0
+
     vim.api.nvim_create_autocmd('TextYankPost', {
       group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
       callback = function()
@@ -40,6 +43,23 @@
               vim.api.nvim_clear_autocmds({ group = 'lsp-highlight', buffer = event2.buf })
             end,
           })
+        end
+      end,
+    })
+    -- Force Go files to use treesitter
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'go',
+      callback = function()
+        vim.treesitter.start()
+      end,
+    })
+
+    -- Ensure Go highlighting is enabled
+    vim.api.nvim_create_autocmd('BufEnter', {
+      pattern = '*.go',
+      callback = function()
+        if vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] == nil then
+          vim.treesitter.start()
         end
       end,
     })
