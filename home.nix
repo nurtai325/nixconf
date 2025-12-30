@@ -36,6 +36,7 @@
     pkgs.rustc
     pkgs.python312
     pkgs.bat
+    pkgs.lm_sensors
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
