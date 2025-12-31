@@ -63,5 +63,10 @@
         end
       end,
     })
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      callback = function()
+        vim.diagnostic.enable()
+      end
+    })
   '';
 }
