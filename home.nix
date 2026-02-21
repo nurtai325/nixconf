@@ -38,6 +38,9 @@
     pkgs.python312
     pkgs.bat
     pkgs.lm_sensors
+    pkgs.perf
+    pkgs.wget
+    pkgs.libreoffice
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];

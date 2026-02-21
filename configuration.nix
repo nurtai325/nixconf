@@ -54,7 +54,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,kz";
     variant = "";
   };
 
@@ -167,7 +167,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   programs.steam = {
-    enable = false;
+    enable = true;
     gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
