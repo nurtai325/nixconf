@@ -43,6 +43,7 @@
     pkgs.libreoffice
     pkgs.pciutils
     pkgs.usbutils
+    pkgs.gemini-cli
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
