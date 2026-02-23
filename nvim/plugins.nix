@@ -17,12 +17,13 @@
     mini-surround.enable = true;
     mini-statusline.enable = true;
     web-devicons.enable = true;
+
     telescope = {
       enable = true;
       settings = {
         pickers.find_files.hidden = true;
       };
-      extensions."fzf-native" = {
+      extensions.fzf-native = {
         enable = true;
         settings = {
           fuzzy = true;
@@ -32,75 +33,61 @@
         };
       };
     };
+
     treesitter = {
       enable = true;
-      highlight.enable = true;
-      indent.enable = true;
+      settings = {
+        highlight.enable = true;
+        indent.enable = true;
+        incremental_selection.enable = true;
+      };
       nixvimInjections = true;
-      folding.enable = false;
-      ensureInstalled = [ "go" ];
-      incrementalSelection.enable = true;
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        c
-        cpp
-        lua
-        vim
-        vimdoc
-        bash
-        python
-        javascript
-        typescript
-        tsx
-        json
-        html
-        css
-        markdown
-        markdown_inline
-        nix
-        rust
-        go
-        gomod
-        gowork
-        yaml
-        toml
-      ];
+      folding = false;
+      grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
     };
+
     lsp = {
       enable = true;
       inlayHints = true;
       servers = {
-        ts_ls.enable = true;
+        ts_ls.enable = true; 
         jsonls.enable = true;
         nil_ls.enable = true;
         gopls = {
           enable = true;
-          extraOptions = {
-            settings = {
-              gopls = {
-                semanticTokens = false;
-              };
+          settings = {
+            gopls = {
+              semanticTokens = false;
             };
           };
         };
         pylsp.enable = true;
-        rust_analyzer.enable = true;
-        rust_analyzer.installCargo = false;
-        rust_analyzer.installRustc = false;
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
         clangd.enable = true;
       };
     };
+
     lsp-format.enable = true;
     lsp-lines.enable = true;
+
     cmp = {
       enable = true;
       autoEnableSources = true;
       settings = {
         mapping = {
-          "<C-n>" = "cmp.mapping.select_next_item()";
-          "<C-p>" = "cmp.mapping.select_prev_item()";
-          "<C-y>" = "cmp.mapping.confirm({ select = true })";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.mapping.abort()";
+          "__raw" = ''
+            cmp.mapping.preset.insert({
+              ["<C-n>"] = cmp.mapping.select_next_item(),
+              ["<C-p>"] = cmp.mapping.select_prev_item(),
+              ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+              ["<C-Space>"] = cmp.mapping.complete(),
+              ["<C-e>"] = cmp.mapping.abort(),
+            })
+          '';
         };
         sources = [
           { name = "nvim_lsp"; }
