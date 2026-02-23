@@ -41,6 +41,8 @@
     pkgs.perf
     pkgs.wget
     pkgs.libreoffice
+    pkgs.pciutils
+    pkgs.usbutils
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];

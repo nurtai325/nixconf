@@ -15,9 +15,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -163,6 +164,7 @@
 
   # General firmware
   hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
