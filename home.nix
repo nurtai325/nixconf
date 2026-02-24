@@ -34,7 +34,6 @@
     pkgs.istioctl
     pkgs.kind
     pkgs.kubectl
-    pkgs.rustc
     pkgs.python312
     pkgs.bat
     pkgs.lm_sensors
@@ -44,6 +43,7 @@
     pkgs.pciutils
     pkgs.usbutils
     pkgs.gemini-cli
+    pkgs.rustup
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
