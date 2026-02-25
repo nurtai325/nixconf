@@ -50,7 +50,7 @@
       enable = true;
       inlayHints = true;
       servers = {
-        ts_ls.enable = true; 
+        ts_ls.enable = true;
         jsonls.enable = true;
         nil_ls.enable = true;
         gopls = {
@@ -66,6 +66,12 @@
           enable = true;
           installCargo = false;
           installRustc = false;
+          cmd = [
+            "rustup"
+            "run"
+            "stable"
+            "rust-analyzer"
+          ];
         };
         clangd.enable = true;
       };
