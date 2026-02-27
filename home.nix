@@ -28,7 +28,6 @@
     pkgs.go
     pkgs.zip
     pkgs.unzip
-    pkgs.clang-tools
     pkgs.cmake
     pkgs.gcc
     pkgs.istioctl
@@ -39,10 +38,8 @@
     pkgs.lm_sensors
     pkgs.perf
     pkgs.wget
-    pkgs.libreoffice
     pkgs.pciutils
     pkgs.usbutils
-    pkgs.gemini-cli
     pkgs.rustup
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
