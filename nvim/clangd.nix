@@ -14,24 +14,24 @@
 
   home.file.".config/clangd/config.yaml".text =
     let
-      gcc = pkgs.gcc.cc;
-      gccVersion = pkgs.gcc.cc.version;
+      clang = pkgs.clang.cc;
+      clangVersion = pkgs.clang.cc.version;
     in
     ''
       CompileFlags:
         Add:
           - "-isystem"
-          - "${gcc}/include/c++/${gccVersion}"
+          - "${clang}/include/c++/${clangVersion}"
           - "-isystem"
-          - "${gcc}/include/c++/${gccVersion}/x86_64-unknown-linux-gnu"
+          - "${clang}/include/c++/${clangVersion}/x86_64-unknown-linux-gnu"
           - "-isystem"
-          - "${gcc}/include/c++/${gccVersion}/backward"
+          - "${clang}/include/c++/${clangVersion}/backward"
           - "-isystem"
-          - "${gcc}/lib/gcc/x86_64-unknown-linux-gnu/${gccVersion}/include"
+          - "${clang}/lib/gcc/x86_64-unknown-linux-gnu/${clangVersion}/include"
           - "-isystem"
-          - "${gcc}/include"
+          - "${clang}/include"
           - "-isystem"
-          - "${gcc}/lib/gcc/x86_64-unknown-linux-gnu/${gccVersion}/include-fixed"
+          - "${clang}/lib/gcc/x86_64-unknown-linux-gnu/${clangVersion}/include-fixed"
           - "-isystem"
           - "${pkgs.glibc.dev}/include"
     '';

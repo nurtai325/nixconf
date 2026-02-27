@@ -75,6 +75,7 @@
       shell_integration = "no-cursor";
       cursor_shape_blink = false;
       ignore_os_cursor_shape = true;
+      hide_window_decorations = "yes";
     };
     font = {
       name = "JetBrainsMono Nerd Font";
