@@ -25,7 +25,7 @@
     pkgs.ripgrep
     pkgs.lazygit
     pkgs.gnumake
-    pkgs.go
+    pkgs.go_1_26
     pkgs.zip
     pkgs.unzip
     pkgs.cmake
