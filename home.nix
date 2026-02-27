@@ -29,7 +29,7 @@
     pkgs.zip
     pkgs.unzip
     pkgs.cmake
-    pkgs.gcc
+    pkgs.clang
     pkgs.istioctl
     pkgs.kind
     pkgs.kubectl
