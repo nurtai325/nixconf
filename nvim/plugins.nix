@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  unstable,
   ...
 }:
 
@@ -55,11 +56,17 @@
         nil_ls.enable = true;
         gopls = {
           enable = true;
+          package = unstable.gopls;
           settings = {
             gopls = {
               semanticTokens = false;
+              env = {
+                GOPATH = "/home/nurtai/go";
+                GOROOT = "${unstable.go_1_26}/share/go";
+              };
             };
           };
+          cmd = [ "${unstable.gopls}/bin/gopls" ];
         };
         pylsp.enable = true;
         rust_analyzer = {

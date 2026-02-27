@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  unstable,
   ...
 }:
 
@@ -19,6 +20,11 @@
     defaultEditor = true;
     vimAlias = true;
     vimdiffAlias = true;
+
+    extraPackages = [
+      unstable.go_1_26
+      unstable.gopls
+    ];
 
     globals = {
       mapleader = " ";

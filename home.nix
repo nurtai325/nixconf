@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  unstable,
+  ...
+}:
 
 {
   imports = [
@@ -25,7 +30,8 @@
     pkgs.ripgrep
     pkgs.lazygit
     pkgs.gnumake
-    pkgs.go_1_26
+    unstable.go_1_26
+    unstable.gopls
     pkgs.zip
     pkgs.unzip
     pkgs.cmake

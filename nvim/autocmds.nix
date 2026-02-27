@@ -2,11 +2,13 @@
   config,
   pkgs,
   lib,
+  unstable,
   ...
 }:
 
 {
   programs.nixvim.extraConfigLua = ''
+    vim.env.PATH = "${unstable.go_1_26}/bin:" .. vim.env.PATH
     vim.g.go_highlight_functions = 0
     vim.g.go_highlight_methods = 0
 
