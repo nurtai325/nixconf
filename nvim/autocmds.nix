@@ -70,5 +70,25 @@
         vim.diagnostic.enable()
       end
     })
+
+    local function fix_unused_colors()
+      -- This is the specific group rust-analyzer is using
+      vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { 
+        fg = "#787c99",      -- A visible blue-gray (TokyoNight 'fg_gutter' or 'comment')
+        undercurl = true,    -- Adds the wavy line back
+        sp = "#787c99",      -- Color of the wavy line
+        ctermfg = "Gray",
+      })
+      
+      -- Force transparency compatibility
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#787c99" })
+    end
+
+    fix_unused_colors()
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      pattern = "*",
+      callback = fix_unused_colors,
+    })
   '';
 }
