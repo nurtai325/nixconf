@@ -47,6 +47,7 @@
     pkgs.usbutils
     pkgs.rustup
     pkgs.w3m
+    pkgs.helm
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
