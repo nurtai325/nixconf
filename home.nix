@@ -9,7 +9,6 @@
   imports = [
     ./nvim
     ./zsh
-    ./tmux
   ];
 
   home.username = "nurtai";
@@ -47,6 +46,7 @@
     pkgs.pciutils
     pkgs.usbutils
     pkgs.rustup
+    pkgs.w3m
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];
