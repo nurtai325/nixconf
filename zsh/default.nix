@@ -1,6 +1,11 @@
 { pkgs, lib, ... }:
 
 {
+
+  imports = [
+    ./tmux.nix
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
