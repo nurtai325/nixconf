@@ -33,21 +33,11 @@
     unstable.gopls
     pkgs.zip
     pkgs.unzip
-    pkgs.cmake
     pkgs.clang
-    pkgs.istioctl
-    pkgs.kind
-    pkgs.kubectl
     pkgs.python312
     pkgs.bat
-    pkgs.lm_sensors
-    pkgs.perf
-    pkgs.wget
-    pkgs.pciutils
-    pkgs.usbutils
     pkgs.rustup
-    pkgs.w3m
-    pkgs.helm
+    pkgs.kubernetes-helm
 
     (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
   ];

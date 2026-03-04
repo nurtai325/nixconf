@@ -11,16 +11,14 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       nixvim,
       nixpkgs-unstable,
-      ... # Add this ellipsis to be safe
+      ...
     }:
     let
       system = "x86_64-linux";
-      # Initialize the unstable package set
       unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
@@ -29,7 +27,6 @@
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        # This is the "bridge" that makes 'unstable' visible to all modules
         specialArgs = { inherit unstable; };
         modules = [
           ./configuration.nix
@@ -37,7 +34,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # IMPORTANT: We must also pass 'unstable' into home-manager
             home-manager.extraSpecialArgs = { inherit unstable; };
             home-manager.users.nurtai = {
               imports = [
