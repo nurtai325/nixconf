@@ -1,14 +1,23 @@
 {
-  config,
   pkgs,
   unstable,
   ...
 }:
 
+let
+  sdScript = (
+    pkgs.writeShellScriptBin "sd" ''
+      selected=$(find "$HOME" -maxdepth 2 -type d,l | rg -v '\/\.[^/]+' | fzf)
+      [ -z "$selected" ] && exit 0
+      name=$(basename "$selected" | tr . _)
+      tmux has-session -t "$name" 2>/dev/null || tmux new-session -s "$name" -c "$selected" -d
+      tmux switch-client -t "$name" || tmux a -t "$name"
+    ''
+  );
+in
 {
   imports = [
-    ./nvim
-    ./zsh
+    ./zsh.nix
   ];
 
   home.username = "nurtai";
@@ -37,13 +46,23 @@
     pkgs.python312
     pkgs.bat
     pkgs.rustup
-    pkgs.kubernetes-helm
+    pkgs.zed-editor
+    pkgs.vulkan-tools
 
-    (pkgs.writeShellScriptBin "sd" (builtins.readFile ./zsh/sd.sh))
+    sdScript
   ];
 
   home.file = {
-    ".p10k.zsh".source = ./zsh/p10k.zsh;
+    ".p10k.zsh".source = ./p10k.zsh;
+    ".curlrc".text = ''
+      max-time = 72000
+      connect-timeout = 72000
+    '';
+    ".clang-format".text = ''
+      BasedOnStyle: LLVM
+      IndentWidth: 4
+      TabWidth: 4
+    '';
   };
 
   home.sessionVariables = {
