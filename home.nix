@@ -1,6 +1,5 @@
 {
   pkgs,
-  unstable,
   ...
 }:
 
@@ -38,8 +37,8 @@ in
     pkgs.ripgrep
     pkgs.lazygit
     pkgs.gnumake
-    unstable.go_1_26
-    unstable.gopls
+    pkgs.go_1_26
+    pkgs.gopls
     pkgs.zip
     pkgs.unzip
     pkgs.clang
