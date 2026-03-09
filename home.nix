@@ -44,9 +44,13 @@ in
     pkgs.clang
     pkgs.python312
     pkgs.bat
-    pkgs.rustup
     pkgs.zed-editor
     pkgs.vulkan-tools
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.rustfmt
+    pkgs.rust-analyzer
+    pkgs.clippy
 
     sdScript
   ];
