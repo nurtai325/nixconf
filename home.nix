@@ -51,6 +51,8 @@ in
     pkgs.rustfmt
     pkgs.rust-analyzer
     pkgs.clippy
+    pkgs.kubernetes-helm
+    pkgs.kind
 
     sdScript
   ];
