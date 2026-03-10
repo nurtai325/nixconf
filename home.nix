@@ -18,6 +18,7 @@ in
 {
   imports = [
     ./zsh.nix
+    ./dconf.nix
   ];
 
   home.username = "nurtai";
