@@ -1,0 +1,63 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-1": ["pane::ActivateItem", 0],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-2": ["pane::ActivateItem", 1],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-3": ["pane::ActivateItem", 2],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-4": ["pane::ActivateItem", 3],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-5": ["pane::ActivateItem", 4],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-6": ["pane::ActivateItem", 5],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-7": ["pane::ActivateItem", 6],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-8": ["pane::ActivateItem", 7],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-9": ["pane::ActivateItem", 8],
+    },
+  },
+]
