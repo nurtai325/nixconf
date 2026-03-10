@@ -55,6 +55,7 @@ in
     pkgs.kind
     pkgs.kubectl
     pkgs.envsubst
+    pkgs.nil
 
     sdScript
   ];
@@ -70,6 +71,12 @@ in
       IndentWidth: 4
       TabWidth: 4
     '';
+    ".config/zed/settings.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconf/settings.json";
+    };
+    ".config/zed/keymap.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixconf/keymap.json";
+    };
   };
 
   home.sessionVariables = {
