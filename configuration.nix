@@ -85,4 +85,9 @@
     enable32Bit = true;
   };
   hardware.enableAllFirmware = true;
+
+  specialisation = {
+    "work".configuration = {
+    };
+  };
 }

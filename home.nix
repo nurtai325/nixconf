@@ -53,6 +53,9 @@ in
     pkgs.clippy
     pkgs.kubernetes-helm
     pkgs.kind
+    pkgs.kubectl
+    pkgs.distrobox
+    pkgs.envsubst
 
     sdScript
   ];
