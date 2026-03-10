@@ -105,4 +105,12 @@ in
       size = 8.4;
     };
   };
+
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${./wallpaper.png}";
+      picture-uri-dark = "file://${./wallpaper.png}";
+      picture-options = "zoom";
+    };
+  };
 }
