@@ -11,6 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages;
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NIXOS_LUKS";
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.wifi.scanRandMacAddress = false;
@@ -51,6 +52,7 @@
 
   users.users.nurtai = {
     isNormalUser = true;
+    initialPassword = "hello_hello";
     description = "nurtai";
     extraGroups = [
       "networkmanager"

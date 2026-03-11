@@ -58,6 +58,7 @@ in
     pkgs.kubectl
     pkgs.envsubst
     pkgs.nil
+    pkgs.nixd
 
     sdScript
   ];

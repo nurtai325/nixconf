@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -21,26 +22,28 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  # the system will automatically generate these but will use uuid's instead of
+  # labels. Labels provide more flexibility and allow for an easier reinstall.
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a56c81b3-33e7-40cf-997c-cac36a2c0679";
+    device = "/dev/disk/by-label/ROOTFS";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1AFD-AAD8";
+    device = "/dev/disk/by-label/BOOTFS";
     fsType = "vfat";
     options = [
-      "fmask=0077"
-      "dmask=0077"
+      "fmask=0022"
+      "dmask=0022"
     ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/7e973029-5aca-468f-a3a9-ec2fd32526f0"; }
+    { device = "/dev/disk/by-label/SWAPFS"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
