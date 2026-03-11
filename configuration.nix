@@ -12,6 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NIXOS_LUKS";
+  system.nixos.label = "Personal";
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.wifi.scanRandMacAddress = false;
