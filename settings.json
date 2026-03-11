@@ -9,6 +9,9 @@
 {
   "cursor_blink": false,
   "terminal": {
+    "font_size": 12.0,
+    "working_directory": null,
+    "shell": "system",
     "blinking": "off",
     "dock": "right"
   },
