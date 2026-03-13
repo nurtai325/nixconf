@@ -54,6 +54,7 @@ in
     pkgs.envsubst
     pkgs.nil
     pkgs.nixd
+    pkgs.rustup
 
     sdScript
   ];
