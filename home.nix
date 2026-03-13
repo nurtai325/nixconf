@@ -55,6 +55,7 @@ in
     pkgs.nil
     pkgs.nixd
     pkgs.rustup
+    pkgs.qemu
 
     sdScript
   ];
