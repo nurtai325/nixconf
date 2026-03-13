@@ -22,7 +22,6 @@
     initContent = lib.mkOrder 550 ''
       bindkey -v;
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; source ~/.p10k.zsh;
-      . "$HOME/.cargo/env";
     '';
   };
 
