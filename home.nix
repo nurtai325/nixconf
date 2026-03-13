@@ -48,11 +48,6 @@ in
     pkgs.bat
     pkgs.zed-editor
     pkgs.vulkan-tools
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.rustfmt
-    pkgs.rust-analyzer
-    pkgs.clippy
     pkgs.kubernetes-helm
     pkgs.kind
     pkgs.kubectl
