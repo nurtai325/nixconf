@@ -43,7 +43,7 @@ in
     pkgs.gopls
     pkgs.zip
     pkgs.unzip
-    pkgs.clang
+    pkgs.gcc
     pkgs.python312
     pkgs.bat
     pkgs.zed-editor
@@ -73,8 +73,8 @@ in
     '';
     ".config/clangd/config.yaml".text =
       let
-        clang = pkgs.clang.cc;
-        clangVersion = pkgs.clang.cc.version;
+        clang = pkgs.gcc.cc;
+        clangVersion = pkgs.gcc.cc.version;
       in
       ''
         CompileFlags:
