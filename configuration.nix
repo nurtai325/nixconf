@@ -51,6 +51,8 @@
     pulse.enable = true;
   };
 
+  services.cloudflare-warp.enable = true;
+
   users.users.nurtai = {
     isNormalUser = true;
     initialPassword = "hello_hello";
