@@ -56,6 +56,7 @@ in
     pkgs.nixd
     pkgs.rustup
     pkgs.qemu
+    pkgs.cloudflare-warp
 
     sdScript
   ];
