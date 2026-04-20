@@ -76,6 +76,7 @@
     vim
     neovim
     zsh
+    pkgs.piper
   ];
 
   system.stateVersion = "25.11";
@@ -97,4 +98,5 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+  services.ratbagd.enable = true;
 }
